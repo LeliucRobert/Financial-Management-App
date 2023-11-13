@@ -95,15 +95,9 @@ void load_data_from_file(GtkWidget *widget , gpointer data)
         return;
     }
     else {
-        char date[10], description[100], type[15];
-                float amount;
 
         transaction_number++;
-        while (fscanf(file , "%s %s %f %s \n" , date ,description, &amount ,type) == 4){
-            strcpy(transaction[transaction_number].date, date);
-            strcpy(transaction[transaction_number].description, description);
-            transaction[transaction_number].amount = amount;
-            strcpy(transaction[transaction_number].type, type);
+        while (fscanf(file , "%s %s %f %s \n" , transaction[transaction_number].date ,transaction[transaction_number].description, &transaction[transaction_number].amount ,transaction[transaction_number].type) == 4){
             transaction_number++;
         }
     }
