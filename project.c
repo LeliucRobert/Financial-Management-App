@@ -97,7 +97,7 @@ void load_data_from_file(GtkWidget *widget , gpointer data)
     else {
 
         transaction_number++;
-        while (fscanf(file , "%s %s %f %s \n" , transaction[transaction_number].date ,transaction[transaction_number].description, &transaction[transaction_number].amount ,transaction[transaction_number].type) == 4){
+        while (fscanf(file , "%10s %30s %f %6s \n" , transaction[transaction_number].date ,transaction[transaction_number].description, &transaction[transaction_number].amount ,transaction[transaction_number].type) == 4){
             transaction_number++;
         }
     }
@@ -202,7 +202,6 @@ int main()
 {
     gtk_init(NULL , NULL);
 
-    GtkWidget *label = gtk_label_new (NULL);
     GtkWidget *box;
     GtkWidget *hbox_2entries;
     GtkWidget *hbox_2display;
